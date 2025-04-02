@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2025-04-07",
+    "phase": "🔵 Res/API",
+    "tasks": [
+      "4 hrs: Review PHP & pygeocodio repositories",
+      "2 hrs: Document key differences"
+    ],
+    "start_time": "11:00"
+  },
+  {
+    "date": "2025-04-08",
+    "phase": "🔵 Res/API",
+    "tasks": [
+      "3 hrs: Analyze Geocodio API docs/OpenAPI spec",
+      "3 hrs: Initial API draft outline"
+    ],
+    "start_time": "11:00"
+  }
+]
