@@ -9,13 +9,7 @@ A simple tool to convert JSON schedule data into iCalendar (.ics) files that can
 
 ## Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/project-calenderizer.git
-cd project-calenderizer
-```
-
-2. Run the setup script:
+1. Run the setup script:
 ```bash
 ./setup.sh
 ```
