@@ -2,19 +2,296 @@
   {
     "date": "2025-04-07",
     "phase": "🔵 Res/API",
+    "start_time": "11:00",
     "tasks": [
-      "4 hrs: Review PHP & pygeocodio repositories",
-      "2 hrs: Document key differences"
-    ],
-    "start_time": "11:00"
+      { "hours": 4, "title": "Review official PHP & pygeocodio repositories" },
+      { "hours": 2, "title": "Document key differences" }
+    ]
   },
   {
     "date": "2025-04-08",
     "phase": "🔵 Res/API",
+    "start_time": "11:00",
     "tasks": [
-      "3 hrs: Analyze Geocodio API docs/OpenAPI spec",
-      "3 hrs: Initial API draft outline"
-    ],
-    "start_time": "11:00"
+      { "hours": 3, "title": "Analyze Geocodio API docs/OpenAPI spec" },
+      { "hours": 3, "title": "Initial API draft outline" }
+    ]
+  },
+  {
+    "date": "2025-04-09",
+    "phase": "🔵 Res/API",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Refine API structure and class methods" },
+      { "hours": 2, "title": "Preliminary internal review" }
+    ]
+  },
+  {
+    "date": "2025-04-10",
+    "phase": "🔵 Res/API",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 3, "title": "Adjustments based on feedback" },
+      { "hours": 3, "title": "Buffer for clarity/revisions" }
+    ]
+  },
+  {
+    "date": "2025-04-11",
+    "phase": "🔵 Res/API",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Finalize detailed API design spec" },
+      { "hours": 2, "title": "Start README & internal docs" }
+    ]
+  },
+  {
+    "date": "2025-04-14",
+    "phase": "🔵 Res/API",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 3, "title": "Complete README/internal docs clearly" },
+      { "hours": 3, "title": "Buffer/review time" }
+    ]
+  },
+  {
+    "date": "2025-04-15",
+    "phase": "🟢 Sync Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 3, "title": "Set up repository, project skeleton" },
+      { "hours": 3, "title": "Initial forward geocoding method" }
+    ]
+  },
+  {
+    "date": "2025-04-16",
+    "phase": "🟢 Sync Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Reverse geocoding methods (single, batch)" },
+      { "hours": 2, "title": "Initial unit tests" }
+    ]
+  },
+  {
+    "date": "2025-04-17",
+    "phase": "🟢 Sync Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Batch forward geocoding methods" },
+      { "hours": 2, "title": "Unit testing & troubleshooting" }
+    ]
+  },
+  {
+    "date": "2025-04-21",
+    "phase": "🟢 Sync Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Address parsing methods" },
+      { "hours": 2, "title": "Data appending methods" }
+    ]
+  },
+  {
+    "date": "2025-04-22",
+    "phase": "🟢 Sync Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Comprehensive error handling design and implementation" },
+      { "hours": 2, "title": "Input validation" }
+    ]
+  },
+  {
+    "date": "2025-04-23",
+    "phase": "🟢 Sync Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Unit tests to 70% coverage" },
+      { "hours": 2, "title": "Documentation draft for sync client" }
+    ]
+  },
+  {
+    "date": "2025-04-24",
+    "phase": "🟢 Sync Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 6, "title": "Buffer, internal code review & revisions" }
+    ]
+  },
+  {
+    "date": "2025-04-28",
+    "phase": "🟢 Sync Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Finalize synchronous implementation & documentation" },
+      { "hours": 2, "title": "Buffer" }
+    ]
+  },
+  {
+    "date": "2025-04-29",
+    "phase": "🟡 Async Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 3, "title": "Async client initial design" },
+      { "hours": 3, "title": "Initial async geocoding methods" }
+    ]
+  },
+  {
+    "date": "2025-05-05",
+    "phase": "🟡 Async Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Async reverse geocoding methods" },
+      { "hours": 2, "title": "Unit tests" }
+    ]
+  },
+  {
+    "date": "2025-05-06",
+    "phase": "🟡 Async Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Async batch geocoding/reverse geocoding" },
+      { "hours": 2, "title": "Preliminary async examples" }
+    ]
+  },
+  {
+    "date": "2025-05-07",
+    "phase": "🟡 Async Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Implement async rate limit management" },
+      { "hours": 2, "title": "Debugging/testing async methods" }
+    ]
+  },
+  {
+    "date": "2025-05-08",
+    "phase": "🟡 Async Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 6, "title": "Buffer for async troubleshooting & optimizations" }
+    ]
+  },
+  {
+    "date": "2025-05-09",
+    "phase": "🟡 Async Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Complete dual sync/async interface clearly" },
+      { "hours": 2, "title": "Refine async examples/docs" }
+    ]
+  },
+  {
+    "date": "2025-05-12",
+    "phase": "🟡 Async Impl",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Performance testing & benchmarks" },
+      { "hours": 2, "title": "Buffer/revisions" }
+    ]
+  },
+  {
+    "date": "2025-05-13",
+    "phase": "🟠 Enh/Robust",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Implement robust rate limiting/exponential backoff" },
+      { "hours": 2, "title": "Logging" }
+    ]
+  },
+  {
+    "date": "2025-05-19",
+    "phase": "🟠 Enh/Robust",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Advanced error handling/documentation" },
+      { "hours": 2, "title": "Buffer" }
+    ]
+  },
+  {
+    "date": "2025-05-20",
+    "phase": "🟠 Enh/Robust",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Optional caching exploration" },
+      { "hours": 2, "title": "Internal reviews/revisions" }
+    ]
+  },
+  {
+    "date": "2025-05-21",
+    "phase": "🟠 Enh/Robust",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 3, "title": "Final robustness enhancements" },
+      { "hours": 3, "title": "Detailed internal documentation" }
+    ]
+  },
+  {
+    "date": "2025-05-26",
+    "phase": "🟣 Test/Docs",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Expand unit tests (coverage ≥90%)" },
+      { "hours": 2, "title": "Integration tests setup" }
+    ]
+  },
+  {
+    "date": "2025-05-27",
+    "phase": "🟣 Test/Docs",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Complete integration tests" },
+      { "hours": 2, "title": "Buffer for test debugging" }
+    ]
+  },
+  {
+    "date": "2025-05-28",
+    "phase": "🟣 Test/Docs",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Draft comprehensive user documentation for Geocodio docs site" },
+      { "hours": 2, "title": "Review internally" }
+    ]
+  },
+  {
+    "date": "2025-06-02",
+    "phase": "🟣 Test/Docs",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Refine user documentation, create additional clear examples/tutorials" },
+      { "hours": 2, "title": "Buffer/revisions" }
+    ]
+  },
+  {
+    "date": "2025-06-03",
+    "phase": "🟣 Test/Docs",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 3, "title": "Final documentation reviews and adjustments with Geocodio team" },
+      { "hours": 3, "title": "Buffer" }
+    ]
+  },
+  {
+    "date": "2025-06-09",
+    "phase": "🔴 CI/CD",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Set up GitHub Actions CI workflows (matching PHP library)" },
+      { "hours": 2, "title": "Manual CI testing/revisions" }
+    ]
+  },
+  {
+    "date": "2025-06-10",
+    "phase": "🔴 CI/CD",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Implement PyPI publishing automation" },
+      { "hours": 2, "title": "Buffer/troubleshooting deployment" }
+    ]
+  },
+  {
+    "date": "2025-06-11",
+    "phase": "🔴 CI/CD",
+    "start_time": "11:00",
+    "tasks": [
+      { "hours": 4, "title": "Final CI/CD verification, documentation for maintainers" },
+      { "hours": 2, "title": "Buffer for final adjustments" }
+    ]
   }
 ]

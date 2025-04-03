@@ -9,7 +9,7 @@ import os
 from datetime import datetime, timedelta
 import pytz
 from icalendar import Calendar, Event
-from ics_generator import (
+from calenderizer.ics_generator import (
     format_tasks,
     calculate_total_hours,
     create_event,

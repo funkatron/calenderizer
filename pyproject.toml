@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "calenderizer"
+version = "0.1.0"
+description = "Convert JSON schedule data into iCalendar (.ics) files"
+requires-python = ">=3.12"
+dependencies = [
+    "icalendar",
+    "pytz"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/calenderizer"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
