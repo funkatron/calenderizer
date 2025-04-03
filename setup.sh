@@ -18,16 +18,10 @@ cd "$SCRIPT_DIR"
 # Define the virtual environment directory.
 VENV_DIR="$SCRIPT_DIR/venv"
 
-# Check if Python 3 is installed; Homebrew users can install it if missing.
-if ! command -v python3.12 &> /dev/null; then
-    log "$LOG_TAG" warning "Python3.12 not found. Installing via Homebrew..."
-    brew install python@3.12
-fi
-
 # Create virtual environment if it doesn't exist.
 if [ ! -d "$VENV_DIR" ]; then
     log "$LOG_TAG" debug "Creating virtual environment..."
-    python3.12 -m venv "$VENV_DIR"
+    python -m venv "$VENV_DIR"
 else
     log "$LOG_TAG" info "Virtual environment already exists"
 fi

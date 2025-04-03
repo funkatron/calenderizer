@@ -49,41 +49,43 @@ python -m calenderizer.ics_generator
 Create a JSON file with your project events in the following format:
 
 ```json
-{
-  "events": [
-    {
-      "date": "2024-03-20",
-      "phase": "Planning",
-      "start_time": "09:00",
-      "tasks": [
-        {
-          "hours": 2,
-          "title": "Project kickoff meeting"
-        },
-        {
-          "hours": 1,
-          "title": "Requirements gathering"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "date": "2024-03-20",
+    "phase": "🔵 Planning",
+    "start_time": "09:00",
+    "tasks": [
+      {
+        "hours": 2,
+        "title": "Project kickoff meeting"
+      },
+      {
+        "hours": 1,
+        "title": "Requirements gathering"
+      }
+    ]
+  }
+]
 ```
 
 ## Features
 
-- Automatic buffer time between tasks
-- Visual task formatting with emojis
+- Automatic buffer time between tasks (1 hour by default)
+- Visual task formatting with emojis:
+  - 🎯 First task
+  - ⚡ Middle tasks
+  - 🏁 Last task
 - Support for multiple events and phases
 - Configurable start times
 - Generates standard iCalendar (.ics) files
+- Timezone support
 
 ## Development
 
 ### Running Tests
 
 ```bash
-python -m unittest tests/test_calendar.py -v
+python -m unittest discover tests -v
 ```
 
 ## Project Structure
@@ -93,13 +95,16 @@ project-calenderizer/
 ├── src/
 │   └── calenderizer/
 │       ├── __init__.py
-│       └── ics_generator.py
+│       ├── constants.py
+│       ├── ics_generator.py
+│       └── calendar_viewer.py
 ├── tests/
+│   ├── __init__.py
 │   └── test_calendar.py
 ├── setup.sh
 ├── log.sh
-├── pyproject.toml
-└── README.md
+├── requirements.txt
+└── pyproject.toml
 ```
 
 ## Logging
