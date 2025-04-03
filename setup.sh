@@ -40,20 +40,13 @@ source "$VENV_DIR/bin/activate"
 log "$LOG_TAG" debug "Upgrading pip..."
 pip install --upgrade pip
 
-# Create a requirements.txt file with necessary packages.
-log "$LOG_TAG" debug "Creating requirements.txt..."
-cat <<EOF > "$SCRIPT_DIR/requirements.txt"
-icalendar
-pytz
-EOF
-
-# Install the required dependencies.
-log "$LOG_TAG" debug "Installing dependencies..."
-pip install -r "$SCRIPT_DIR/requirements.txt"
+# Install the package in development mode
+log "$LOG_TAG" debug "Installing package in development mode..."
+pip install -e .
 
 # Run the Python script to generate the .ics file.
 log "$LOG_TAG" debug "Generating calendar file..."
-python3 "$SCRIPT_DIR/ics-generator.py"
+python -m calenderizer.ics_generator
 
 # Get the full path of the generated file
 CALENDAR_FILE="$SCRIPT_DIR/project_schedule.ics"

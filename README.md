@@ -1,6 +1,6 @@
 # Project Calenderizer
 
-A simple tool to convert JSON schedule data into iCalendar (.ics) files that can be imported into calendar applications.
+A Python tool that generates iCalendar (.ics) files from JSON input, designed for project planning and task scheduling.
 
 ## Prerequisites
 
@@ -9,60 +9,111 @@ A simple tool to convert JSON schedule data into iCalendar (.ics) files that can
 
 ## Installation
 
-1. Run the setup script:
-```bash
-./setup.sh
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/project-calenderizer.git
+   cd project-calenderizer
+   ```
 
-This will:
+2. Run the setup script:
+   ```bash
+   ./setup.sh
+   ```
+
+The setup script will:
 - Create a Python virtual environment
 - Install required dependencies
-- Generate the calendar file from `schedule.json`
+- Generate your calendar file
 
 ## Usage
 
 ### Basic Usage
 
-1. Edit the `schedule.json` file with your schedule data:
-```json
-{
-    "events": [
-        {
-            "summary": "Team Meeting",
-            "start": "2024-04-01T10:00:00",
-            "end": "2024-04-01T11:00:00",
-            "description": "Weekly team sync"
-        }
-    ]
-}
-```
+1. Run the setup script:
+   ```bash
+   ./setup.sh
+   ```
 
-2. Run the setup script to generate the calendar:
-```bash
-./setup.sh
-```
-
-3. Import the generated `project_schedule.ics` file into your calendar application.
+2. Import the generated `project_schedule.ics` file into your calendar application.
 
 ### Manual Calendar Generation
 
-If you only want to regenerate the calendar without running the full setup:
+You can also generate the calendar file manually:
 
 ```bash
-source venv/bin/activate
-python3 ics-generator.py
+python -m calenderizer.ics_generator
+```
+
+### Input JSON Format
+
+Create a JSON file with your project events in the following format:
+
+```json
+{
+  "events": [
+    {
+      "date": "2024-03-20",
+      "phase": "Planning",
+      "start_time": "09:00",
+      "tasks": [
+        {
+          "hours": 2,
+          "title": "Project kickoff meeting"
+        },
+        {
+          "hours": 1,
+          "title": "Requirements gathering"
+        }
+      ]
+    }
+  ]
+}
+```
+
+## Features
+
+- Automatic buffer time between tasks
+- Visual task formatting with emojis
+- Support for multiple events and phases
+- Configurable start times
+- Generates standard iCalendar (.ics) files
+
+## Development
+
+### Running Tests
+
+```bash
+python -m unittest tests/test_calendar.py -v
+```
+
+## Project Structure
+
+```
+project-calenderizer/
+├── src/
+│   └── calenderizer/
+│       ├── __init__.py
+│       └── ics_generator.py
+├── tests/
+│   └── test_calendar.py
+├── setup.sh
+├── log.sh
+├── pyproject.toml
+└── README.md
 ```
 
 ## Logging
 
-The project includes a logging system with different levels:
-- `[debug]` - Step-by-step progress (purple)
-- `[info]` - Status updates and completion messages (blue)
-- `[warning]` - Potential issues (yellow)
-- `[error]` - Error messages (red)
+The project uses a custom logging system with the following levels:
+- `[info]` - General information (blue)
+- `[warning]` - Warnings (yellow)
+- `[error]` - Errors (red)
+- `[debug]` - Debug information (purple)
+- `[complete]` - Task completion (green)
+- `[next]` - Next steps (cyan)
 
-Logs are stored in `app.log` and `setup.log`.
+Logs are displayed in the terminal with appropriate colors and timestamps.
 
 ## License
 
-MIT License
+This project is licensed under the MIT License - see the LICENSE file for details.
