@@ -10,9 +10,8 @@ from datetime import datetime, timedelta
 import pytz
 from icalendar import Calendar, Event
 from calenderizer.ics_generator import (
-    format_tasks,
-    calculate_total_hours,
-    create_event,
+    format_task,
+    create_events,
     create_calendar,
     TASK_BUFFER_HOURS
 )
@@ -33,47 +32,46 @@ class TestCalendarGenerator(unittest.TestCase):
         }
         self.timezone = "America/New_York"
 
-    def test_format_tasks(self):
-        """Test task formatting with emojis and summary."""
-        formatted = format_tasks(self.test_tasks)
+    def test_format_task(self):
+        """Test task formatting with emojis."""
+        # Test first task
+        formatted = format_task(self.test_tasks[0], 1, len(self.test_tasks))
+        self.assertEqual(formatted, "🎯 4 hrs: First Task")
 
-        # Check that the summary line is present
-        self.assertIn("📅 Total:", formatted)
-        self.assertIn("9 hrs + 1.0 hrs buffer = 10.0 hrs", formatted)
+        # Test middle task
+        formatted = format_task(self.test_tasks[1], 2, len(self.test_tasks))
+        self.assertEqual(formatted, "⚡ 2 hrs: Second Task")
 
-        # Check that all tasks are present with correct emojis
-        self.assertIn("🎯 4 hrs: First Task", formatted)
-        self.assertIn("⚡ 2 hrs: Second Task", formatted)
-        self.assertIn("🏁 3 hrs: Third Task", formatted)
+        # Test last task
+        formatted = format_task(self.test_tasks[2], 3, len(self.test_tasks))
+        self.assertEqual(formatted, "🏁 3 hrs: Third Task")
 
-    def test_calculate_total_hours(self):
-        """Test total hours calculation including buffer time."""
-        # Test with multiple tasks
-        total = calculate_total_hours(self.test_tasks)
-        expected = 9 + (2 * TASK_BUFFER_HOURS)  # 9 hours of tasks + 2 buffers
-        self.assertEqual(total, expected)
-
-        # Test with single task (no buffer)
-        single_task = [{"hours": 4, "title": "Single Task"}]
-        total = calculate_total_hours(single_task)
-        self.assertEqual(total, 4)
-
-    def test_create_event(self):
+    def test_create_events(self):
         """Test event creation with correct times and content."""
-        event = create_event(self.test_entry, self.timezone)
+        events = create_events(self.test_entry, self.timezone)
 
-        # Check event properties
-        self.assertIsInstance(event, Event)
-        self.assertEqual(event['summary'], "🔵 Test Phase: First Task")
+        # Check number of events
+        self.assertEqual(len(events), 3)
+
+        # Check first event
+        first_event = events[0]
+        self.assertIsInstance(first_event, Event)
+        self.assertEqual(first_event['summary'], "🔵 Test Phase: First Task")
+        self.assertEqual(first_event['description'], "🎯 4 hrs: First Task")
 
         # Check start time
         tz = pytz.timezone(self.timezone)
         expected_start = tz.localize(datetime(2025, 4, 1, 11, 0))
-        self.assertEqual(event['dtstart'].dt, expected_start)
+        self.assertEqual(first_event['dtstart'].dt, expected_start)
 
-        # Check end time (9 hours of tasks + 2 buffers = 10 hours total)
-        expected_end = expected_start + timedelta(hours=10)
-        self.assertEqual(event['dtend'].dt, expected_end)
+        # Check end time
+        expected_end = expected_start + timedelta(hours=4)
+        self.assertEqual(first_event['dtend'].dt, expected_end)
+
+        # Check second event (should start after buffer)
+        second_event = events[1]
+        expected_second_start = expected_end + timedelta(hours=TASK_BUFFER_HOURS)
+        self.assertEqual(second_event['dtstart'].dt, expected_second_start)
 
     def test_create_calendar(self):
         """Test calendar creation with multiple events."""
@@ -95,7 +93,7 @@ class TestCalendarGenerator(unittest.TestCase):
 
         # Check number of events
         events = [comp for comp in calendar.subcomponents if isinstance(comp, Event)]
-        self.assertEqual(len(events), 2)
+        self.assertEqual(len(events), 4)  # 3 from first entry + 1 from second entry
 
 if __name__ == '__main__':
     unittest.main()
