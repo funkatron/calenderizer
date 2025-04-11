@@ -1,0 +1,46 @@
+[
+  {
+    "date": "2024-04-01",
+    "phase": "🔵 Planning",
+    "start_time": "09:00",
+    "tasks": [
+      {
+        "hours": 2,
+        "title": "Project kickoff meeting"
+      },
+      {
+        "hours": 3,
+        "title": "Requirements gathering"
+      }
+    ]
+  },
+  {
+    "date": "2024-04-02",
+    "phase": "🟢 Design",
+    "tasks": [
+      {
+        "hours": 4,
+        "title": "System architecture design"
+      }
+    ]
+  },
+  {
+    "date": "2024-04-03",
+    "phase": "🔴 Development",
+    "start_time": "13:00",
+    "tasks": [
+      {
+        "hours": 3,
+        "title": "Core functionality implementation"
+      },
+      {
+        "hours": 2,
+        "title": "Unit testing"
+      },
+      {
+        "hours": 1,
+        "title": "Code review"
+      }
+    ]
+  }
+]

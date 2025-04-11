@@ -1,18 +1,23 @@
-# Project Calenderizer
+# Calenderizer
 
-A Python tool that generates iCalendar (.ics) files from JSON input, designed for project planning and task scheduling.
+A Python tool that converts a JSON schedule into an iCalendar (.ics) file, which can be imported into any calendar application.
 
-## Prerequisites
+## Features
 
-- Python 3.12
-- Homebrew (for macOS users)
+- Converts JSON schedule to iCalendar format
+- Supports multiple tasks per day
+- Calculates task durations and buffer times
+- Customizable timezone support
+- Configurable work hours and task buffers
+- Verbose logging for debugging
+- HTML calendar view with daily, weekly, and monthly views
 
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/project-calenderizer.git
-   cd project-calenderizer
+   git clone https://github.com/yourusername/calenderizer.git
+   cd calenderizer
    ```
 
 2. Run the setup script:
@@ -20,105 +25,110 @@ A Python tool that generates iCalendar (.ics) files from JSON input, designed fo
    ./setup.sh
    ```
 
-The setup script will:
-- Create a Python virtual environment
-- Install required dependencies
-- Generate your calendar file
-
 ## Usage
 
 ### Basic Usage
 
-1. Run the setup script:
-   ```bash
-   ./setup.sh
-   ```
-
-2. Import the generated `project_schedule.ics` file into your calendar application.
-
-### Manual Calendar Generation
-
-You can also generate the calendar file manually:
-
 ```bash
-python -m calenderizer.ics_generator
+python src/calenderizer/ics_generator.py
 ```
 
-### Input JSON Format
+This will use the default settings:
+- Input file: `schedule.json`
+- Output file: `project_schedule.ics`
+- Timezone: America/New_York
+- Buffer between tasks: 0.5 hours (30 minutes)
 
-Create a JSON file with your project events in the following format:
+### Advanced Usage
+
+The script supports various command-line options:
+
+```bash
+python src/calenderizer/ics_generator.py \
+    -i custom_schedule.json \
+    -o custom_output.ics \
+    -t "Europe/London" \
+    --start-time "09:00" \
+    --work-hours 8 \
+    --buffer-hours 0.25 \
+    --verbose
+```
+
+#### Command Line Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-i, --input` | Input JSON schedule file | schedule.json |
+| `-o, --output` | Output ICS file | project_schedule.ics |
+| `-t, --timezone` | Timezone for events | America/New_York |
+| `--start-time` | Default start time (HH:MM) | None |
+| `--work-hours` | Work hours per day | 8 |
+| `--buffer-hours` | Buffer between tasks (hours) | 0.5 |
+| `--verbose` | Enable verbose logging | False |
+
+### Schedule JSON Format
+
+The input JSON file should follow this structure:
 
 ```json
 [
   {
-    "date": "2024-03-20",
-    "phase": "🔵 Planning",
+    "date": "2024-04-01",
+    "phase": "🔵 Res/API",
     "start_time": "09:00",
     "tasks": [
       {
-        "hours": 2,
-        "title": "Project kickoff meeting"
+        "hours": 4,
+        "title": "Implement API endpoints"
       },
       {
-        "hours": 1,
-        "title": "Requirements gathering"
+        "hours": 2,
+        "title": "Write documentation"
       }
     ]
   }
 ]
 ```
 
-## Features
+### Viewing the Calendar
 
-- Automatic buffer time between tasks (1 hour by default)
-- Visual task formatting with emojis:
-  - 🎯 First task
-  - ⚡ Middle tasks
-  - 🏁 Last task
-- Support for multiple events and phases
-- Configurable start times
-- Generates standard iCalendar (.ics) files
-- Timezone support
+After generating the ICS file, you can view it in your preferred calendar application or use the built-in HTML viewer:
+
+```bash
+python src/calenderizer/calendar_viewer.py --view weekly
+```
+
+The HTML viewer supports three view types:
+- `daily`: Detailed day view with timeline
+- `weekly`: Week view with task summaries
+- `monthly`: Month view with task counts
 
 ## Development
 
 ### Running Tests
 
 ```bash
-python -m unittest discover tests -v
+python -m pytest tests/
 ```
 
-## Project Structure
+### Project Structure
 
 ```
-project-calenderizer/
+calenderizer/
 ├── src/
 │   └── calenderizer/
 │       ├── __init__.py
-│       ├── constants.py
 │       ├── ics_generator.py
 │       └── calendar_viewer.py
 ├── tests/
-│   ├── __init__.py
-│   └── test_calendar.py
+│   └── test_calendar_generator.py
+├── schedule.json
+├── project_schedule.ics
+├── calendar_view.html
 ├── setup.sh
-├── log.sh
-├── requirements.txt
-└── pyproject.toml
+└── README.md
 ```
-
-## Logging
-
-The project uses a custom logging system with the following levels:
-- `[info]` - General information (blue)
-- `[warning]` - Warnings (yellow)
-- `[error]` - Errors (red)
-- `[debug]` - Debug information (purple)
-- `[complete]` - Task completion (green)
-- `[next]` - Next steps (cyan)
-
-Logs are displayed in the terminal with appropriate colors and timestamps.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

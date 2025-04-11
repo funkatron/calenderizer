@@ -1,2 +1,4 @@
-icalendar
-pytz
+icalendar==5.0.11
+pytz==2024.1
+pytest==8.0.2
+pytest-cov==4.1.0
